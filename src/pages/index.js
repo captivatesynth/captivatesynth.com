@@ -1,184 +1,249 @@
-import * as React from "react"
-
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-// data
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+import * as React from 'react'
+import { H1, H2, H3, H4, H5, H6, P, mediaMinWidth } from '../components/styled'
+import preview_universe from '../../static/preview_universe.mp4'
+import preview_light_scenes from '../../static/preview_light_scenes.mp4'
+import preview_visualizer from '../../static/preview_visualizer.mp4'
+import preview_mixer from '../../static/preview_mixer.mp4'
+import Section from '../components/Section'
+import Title from '../index/Title'
+import Page from '../components/Page'
+import styled from 'styled-components'
+import JustTheBeginning from '../index/JustTheBeginning'
+import Download from '../index/Download'
+import FixedARVideo from '../components/FixedARVideo'
+import { StaticImage } from 'gatsby-plugin-image'
 
 // markup
-const IndexPage = () => {
+export default function IndexPage() {
+  let isAlternate = true
+  function alternate() {
+    isAlternate = !isAlternate
+    return isAlternate
+  }
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
+    <Page
+      pageName="Home"
+      expandedHeader
+      pageDescription={`An app for generating live visuals and lighting that synchronize to music.`}
+    >
+      <Title />
+      <Section alternate={alternate()} flex>
+        <SubSection>
+          <H3>Ready to Impress?</H3>
+          {/* <H3>Create A Lasting Impression</H3> */}
+          <P>
+            Captivate generates live visuals and dmx lighting. All synchronized
+            to music.
+          </P>
+          <FixedARVideo
+            src="https://www.youtube.com/embed/6ZwQ97sySq0"
+            ar={16 / 9}
+          />
+          <P>This is how visual creation is supposed to feel</P>
+          <H4>Synchronized with Ableton Link</H4>
+          <P>
+            You can also synchronize manually with tap tempo. Or wait for our
+            upcoming live beat-detection feature!
+          </P>
+          <H4>Free & Open Source</H4>
+          <a href="https://github.com/spensbot/captivate">
+            View the code on Github
           </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
+        </SubSection>
+      </Section>
+      {/* <Section alternate={alternate()} flex>
+        <SubSection>
+          <BISF />
+        </SubSection>
+      </Section> */}
+      <Section alternate={alternate()} flex>
+        <SubSection>
+          <H3>Add Dimension To Your DMX Universe</H3>
+          <P>Configure your dmx universe in minutes.</P>
+          <P>
+            Tell Captivate which fixtures you have, and where they are located
+            in space.
+          </P>
+          <P>Add fixtures seamlessly, without the need to update scenes.</P>
+          <Video
+            src={preview_universe}
+            alt={`Captivate's DMX Universe Configuration UI.
+            From here you can tell Captivate what fixtures you have, what channel they are on, 
+            and where they are located in space.`}
+          />
+        </SubSection>
+      </Section>
+      <Section alternate={alternate()} flex>
+        <SubSection>
+          <H3>Breathtaking Lighting</H3>
+          <P>
+            With captivate, hundreds of DMX channels boil down to a handful of
+            intuitive parameters
+          </P>
+          {/* <ul>
+            <li>Hue</li>
+            <li>Saturation</li>
+            <li>Brightness</li>
+            <li>X</li>
+            <li>Y</li>
+            <li>Strobe</li>
+            <li>and more...</li>
+          </ul> */}
+          <P>
+            Take control of these parameters live, or automate them with
+            captivate's familiar, synth-like modulation tools.
+          </P>
+          {/* <P>This approach is what makes captivate so simple and fun.</P> */}
+          <P>Light groups allow you to add complexity as needed</P>
+          <Video
+            src={preview_light_scenes}
+            alt={`Captivate's Light Scene Editor UI.
+            From here you can create lighting scenes by modulating captivate's intuitive parameters.`}
+          />
+        </SubSection>
+      </Section>
+      <Section alternate={alternate()} flex>
+        <SubSection>
+          <H3>Stunning Visuals</H3>
+          <P>
+            Combine visualizers and effects in any way to perfect your visual
+            experience
+          </P>
+          <P>Add your own videos and photos to create something truly unique</P>
+          <P>
+            Visualizers and effects listen to the parameters from the active
+            light scene so lighing and visuals are automatically synchronized.
+          </P>
+          <Video
+            src={preview_visualizer}
+            alt={`Captivate's Visualization Scene Creator UI.`}
+          />
+        </SubSection>
+      </Section>
+      <Section alternate={alternate()} flex>
+        <SubSection>
+          <H3>Streamlined Complexity</H3>
+          <P>
+            With Captivate, you'll forget there are 512 DMX channels running
+            behind then scenes
+          </P>
+          {/* <P>But you can still access them when you need to</P> */}
+          <Video src={preview_mixer} alt={`Captivate's DMX Mixer UI.`} />
+        </SubSection>
+      </Section>
+      <Section alternate={alternate()}>
+        <SubSection>
+          <JustTheBeginning />
+        </SubSection>
+      </Section>
+      <Section alternate={alternate()} flex>
+        <SubSection>
+          <H3>How It Started</H3>
+          <P>
+            I've been a musician all my life. Music is fun and dynamic. But
+            lighting software has always been static, clunky, and unintuitive.
+            This forces artists to choose between a pre-defined light show that
+            locks you into a set, or a light show that doesn't fit the music.
+            <br />
+            <br />
+            Captivate solves these issues. Everything is in sync, I can take as
+            much live control as I'd like, and adding fixtures to my DMX
+            universe is a piece of cake.
+            <br />
+            <br />
+            The end result is an app that's incredibly fun to use. And the
+            results truly are captivating.
+          </P>
+        </SubSection>
+        <SubSection style={{ flex: '0.5 0 0' }}>
+          <StaticImage
+            src="../../static/me_serious.png"
+            style={{ width: '15rem', height: '20rem', objectFit: 'cover' }}
+            alt="Spenser Saling, Captivate Creator"
+          />
+          <P>Spenser Saling, Creator</P>
+        </SubSection>
+      </Section>
+      <Section alternate={alternate()}>
+        <SubSection>
+          <H3>Required Equipment</H3>
+          <P>
+            Captivate runs on MacOS 10.11 (El Capitan) and up. Windows and Linux
+            support coming soon
+          </P>
+          <H5>For DMX Lighting</H5>
+          <P>
+            Captivate is designed to work with the{' '}
+            <LightLink href="https://www.enttec.com/product/lighting-communication-protocols/dmx512/dmx-usb-interface/">
+              ENNTEC USB Pro
+            </LightLink>{' '}
+            or the{' '}
+            <LightLink href="https://dmxking.com/usbdmx/ultradmxmicro">
+              DMX King Ultra DMX Micro
+            </LightLink>
+          </P>
+          <H5>For Visuals</H5>
+          <P>
+            Captivate's Visualizer Engine runs best on a computer with a
+            dedicated GPU.
+          </P>
+          <H6>
+            Checkout out the{' '}
+            <LightLink href="/recommended_equipment">
+              Recommended Equipment
+            </LightLink>{' '}
+            page for more info
+          </H6>
+        </SubSection>
+      </Section>
+      <a id="download" />
+      <Section alternate={alternate()}>
+        <SubSection>
+          <Download />
+        </SubSection>
+      </Section>
+      {/* <Section alternate={alternate()}>
+        <SubSection>
+          <H2>What Next?</H2>
+          <P>
+            Check out our{' '}
+            <LightLink href="/getting_started">getting started guide</LightLink>
+          </P>
+        </SubSection>
+      </Section> */}
+    </Page>
   )
 }
 
-export default IndexPage
+function Video({ src, alt }) {
+  return (
+    <video
+      loop
+      muted
+      autoPlay
+      playsInline
+      src={src}
+      style={{
+        width: '100%',
+        borderRadius: '1% / 1.5%',
+        boxShadow: '0 0.3rem 1rem 0 #000c',
+      }}
+      alt={alt}
+    />
+  )
+}
+
+const SubSection = styled.div`
+  flex: 1 0 0;
+  min-width: 15rem;
+  margin: 1rem;
+`
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const LightLink = styled.a`
+  color: #aaf;
+`
