@@ -55,16 +55,28 @@ export default function GettingStartedPage() {
         <P>
           Add your own videos and images for a completely unique experience.
         </P>
-        <VideoPlaceholder />
+        <FixedARVideo
+          src="https://www.youtube.com/embed/ZFH2CgZM18w"
+          ar={1920 / 1080}
+          maxWidth={MAX_VID_WIDTH}
+        />
         <H4>5. Advanced Lighting</H4>
         <P>
           Customize your lighting even further with x/y axis, color maps,
           lighting groups, and the randomization engine.
         </P>
-        <VideoPlaceholder />
+        <FixedARVideo
+          src="https://www.youtube.com/embed/stIc3lboHXY"
+          ar={1920 / 1080}
+          maxWidth={MAX_VID_WIDTH}
+        />
         <H4>6. Midi Control</H4>
         <P>Control Captivate with a midi controller</P>
-        <VideoPlaceholder />
+        <FixedARVideo
+          src="https://www.youtube.com/embed/SLxdzWcwVdo"
+          ar={1920 / 1080}
+          maxWidth={MAX_VID_WIDTH}
+        />
       </Section>
     </Page>
   )

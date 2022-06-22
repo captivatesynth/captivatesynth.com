@@ -68,7 +68,11 @@ function Header({ expanded, fixed, invisible }) {
         </Title>
         <img
           src={icon}
-          style={{ width: `${outEase * 0.7 + 2.0}rem`, opacity: 1 - outEase }}
+          style={{
+            width: `${outEase * 0.7 + 2.0}rem`,
+            opacity: 1 - outEase,
+            marginRight: '2rem',
+          }}
           alt="Captivate Logo (a red, green, and blue cube)"
         />
         <Spacer />

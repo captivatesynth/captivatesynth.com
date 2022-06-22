@@ -91,7 +91,7 @@ export default function IndexPage() {
           </ul> */}
           <P>
             Take control of these parameters live, or automate them with
-            captivate's familiar, synth-like modulation tools.
+            Captivate's familiar, synth-like modulation tools.
           </P>
           {/* <P>This approach is what makes captivate so simple and fun.</P> */}
           <P>Light groups allow you to add complexity as needed</P>
