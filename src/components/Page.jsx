@@ -41,6 +41,20 @@ export default function Page({
         <meta lang="en" />
         <title>Captivate Lighting and Visual Synth: {pageName}</title>
         <link rel="canonical" href="http://mysite.com/example" />
+
+        {`<!-- Global site tag (gtag.js) - Google Analytics -->`}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZT94MKPHHM"
+        ></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZT94MKPHHM');
+          `}
+        </script>
       </Helmet>
       <GlobalStyle />
       <Header expanded={expandedHeader} fixed />
