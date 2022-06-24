@@ -48,7 +48,7 @@ export default function Page({
         <meta property="og:url" content="https://captivatesynth.com" />
         <meta
           property="og:image"
-          content="https://captivatesynth.com/static/icon.png"
+          content="https://captivatesynth.com/icon.svg"
         />
         <meta
           property="og:description"
