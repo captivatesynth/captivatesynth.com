@@ -39,6 +39,22 @@ export default function Page({
         />
         <meta name="author" content="Spenser Saling" />
         <meta lang="en" />
+
+        <meta
+          property="og:title"
+          content="Captivate: Lighting & Visual Synth"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://captivatesynth.com" />
+        <meta
+          property="og:image"
+          content="https://captivatesynth.com/static/icon.png"
+        />
+        <meta
+          property="og:description"
+          content="A revolutionary app for live-generating lighting and visuals that synchronize to music."
+        />
+
         <title>Captivate Lighting and Visual Synth: {pageName}</title>
         <link rel="canonical" href="http://mysite.com/example" />
 
