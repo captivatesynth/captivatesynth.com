@@ -7,6 +7,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import icon from '../../static/icon.svg'
 
 const speed = 0.1
+const opacity = 0.7
 
 export default function WrappedHeader({ expanded }) {
   if (expanded) {
@@ -26,11 +27,11 @@ function Header({ expanded, fixed, invisible }) {
 
   React.useEffect(() => {
     const animate = () => {
-      if (window.scrollY > window.innerHeight && ease > 0) {
-        setEase(Math.max(ease - speed, 0))
+      if (window.scrollY > 0 && ease > 0) {
+        setEase(ease - speed)
       }
-      if (window.scrollY < window.innerHeight && ease < 1) {
-        setEase(Math.min(ease + speed, 1))
+      if (window.scrollY === 0 && ease < 1) {
+        setEase(ease + speed)
       }
     }
 
@@ -53,9 +54,8 @@ function Header({ expanded, fixed, invisible }) {
   return (
     <Root
       style={{
-        top: `${-outEase * 5}rem`,
         position: fixed ? 'fixed' : undefined,
-        padding: '0.5rem',
+        padding: `${outEase * 1 + 0.5}rem 1rem`,
         backgroundColor: backgroundColor,
         boxShadow: boxShadow,
         WebkitBoxShadow: boxShadow,
@@ -63,17 +63,20 @@ function Header({ expanded, fixed, invisible }) {
       }}
     >
       <FlexWrap onClick={(e) => (window.location.href = '/')}>
-        <Title style={{ fontSize: `1.5 rem` }}>Captivate</Title>
+        <Title style={{ fontSize: `${outEase * 1.5 + 1.3}rem` }}>
+          Captivate
+        </Title>
         <img
           src={icon}
           style={{
-            width: `2rem`,
+            width: `${outEase * 0.7 + 2.0}rem`,
+            opacity: 1 - outEase,
             marginRight: '2rem',
           }}
           alt="Captivate Logo (a red, green, and blue cube)"
         />
         <Spacer />
-        <SubTitle style={{ fontSize: `1rem` }}>
+        <SubTitle style={{ fontSize: `${outEase * 0.75 + 1}rem` }}>
           Lighting & Visual Synth
         </SubTitle>
       </FlexWrap>
@@ -84,6 +87,7 @@ function Header({ expanded, fixed, invisible }) {
 }
 
 const Root = styled.div`
+  top: 0;
   left: 0;
   right: 0;
   display: flex;

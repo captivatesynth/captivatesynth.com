@@ -6,6 +6,7 @@ import preview_visualizer from '../../static/preview_visualizer.mp4'
 import preview_mixer from '../../static/preview_mixer.mp4'
 import Section from '../components/Section'
 import Title from '../index/Title'
+import SubTitle from '../index/SubTitle'
 import Page from '../components/Page'
 import styled from 'styled-components'
 import JustTheBeginning from '../index/JustTheBeginning'
@@ -27,35 +28,8 @@ export default function IndexPage() {
       pageDescription={`An app for generating live visuals and lighting that synchronize to music.`}
     >
       <Title />
-      <Section alternate={alternate()} flex>
-        <SubSection>
-          <H3>Ready to Impress?</H3>
-          {/* <H3>Create A Lasting Impression</H3> */}
-          <P>
-            Captivate generates live visuals and dmx lighting. All synchronized
-            to music.
-          </P>
-          <FixedARVideo
-            src="https://www.youtube.com/embed/6ZwQ97sySq0"
-            ar={16 / 9}
-          />
-          <P>This is how visual creation is supposed to feel</P>
-          <H4>Synchronized with Ableton Link</H4>
-          <P>
-            You can also synchronize manually with tap tempo. Or wait for our
-            upcoming live beat-detection feature!
-          </P>
-          <H4>Free & Open Source</H4>
-          <a href="https://github.com/spensbot/captivate">
-            View the code on Github
-          </a>
-        </SubSection>
-      </Section>
-      {/* <Section alternate={alternate()} flex>
-        <SubSection>
-          <BISF />
-        </SubSection>
-      </Section> */}
+      <a id="subtitle" />
+      <SubTitle />
       <Section alternate={alternate()} flex>
         <SubSection>
           <H3>Add Dimension To Your DMX Universe</H3>
@@ -129,6 +103,18 @@ export default function IndexPage() {
           </P>
           {/* <P>But you can still access them when you need to</P> */}
           <Video src={preview_mixer} alt={`Captivate's DMX Mixer UI.`} />
+        </SubSection>
+      </Section>
+      <Section alternate={alternate()} flex>
+        <SubSection>
+          <H3>Powerful Midi Control</H3>
+          <P>
+            Plug in a midi controller to "play" your lights like an instrument.
+          </P>
+          <P>
+            Captivate is so intuitive that someone with no lighting experience
+            can control a show.
+          </P>
         </SubSection>
       </Section>
       <Section alternate={alternate()}>

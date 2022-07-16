@@ -1,94 +1,91 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import randoCirclesSvg from '../components/randoCirclesSvg'
+import FixedARVideo from '../components/FixedARVideo'
+import { H1 } from '../components/styled'
 import icon from '../../static/icon.svg'
-
-const GRADIENT_KEY = 'is-gradient'
 
 export default function Title() {
   return (
     <Root gradient={true}>
-      <StarWrapper style={{ animationDuration: '200000ms' }}>
-        <Stars />
-      </StarWrapper>
-      <StarWrapper style={{ animationDuration: '100000ms' }}>
-        <Stars />
-      </StarWrapper>
-      <StarWrapper style={{ animationDuration: '100000ms' }}>
-        <Stars />
-      </StarWrapper>
-      {layer(100)}
-      {layer(200)}
-      {layer(300)}
-      {layer(400)}
-      {layer(500)}
-      <Logo>
-        <img
-          src={icon}
-          width="10rem"
-          height="10rem"
-          style={{ width: '10rem', height: '10rem' }}
-          alt="Captivate Logo (a red, green, and blue cube)"
-        ></img>
-      </Logo>
+      <Wrapper>
+        <Row>
+          <TitleText>Captivate</TitleText>
+          <img
+            src={icon}
+            style={{
+              width: `3rem`,
+              marginRight: '2rem',
+            }}
+            alt="Captivate Logo (a red, green, and blue cube)"
+          />
+          <div style={{ flex: '1 0 0' }} />
+          <SubText>Lighting & Visual Synth</SubText>
+        </Row>
+        <div style={{ flex: '1 0 0' }} />
+        <VideoWrapper>
+          <FixedARVideo
+            src="https://www.youtube.com/embed/6ZwQ97sySq0"
+            ar={16 / 9}
+          />
+        </VideoWrapper>
+        <div style={{ flex: '1 0 0' }} />
+        <More
+          onClick={() =>
+            document
+              .getElementById('subtitle')
+              .scrollIntoView({ behavior: 'smooth' })
+          }
+        >
+          Scroll To Learn How It Works
+        </More>
+      </Wrapper>
     </Root>
   )
 }
 
-function layer(delay_seconds) {
-  return (
-    <StarWrapper style={{ animationDuration: `${delay_seconds * 1000}ms` }}>
-      <Stars />
-    </StarWrapper>
-  )
-}
-
-function Stars() {
-  return (
-    <img
-      width="100%"
-      height="100%"
-      src={`data:image/svg+xml;utf8,${randoCirclesSvg(100, 100)}`}
-      alt="A bunch of white circles with random placement and opacity"
-    />
-  )
-}
-
-const Logo = styled.div`
-  position: absolute;
+const Row = styled.div`
+  display: flex;
+  align-items: center;
 `
 
-const StarWrapper = styled.div`
-  width: 50rem;
-  height: 50rem;
-  position: absolute;
+const TitleText = styled.h1`
+  font-size: 3rem;
+  margin: 0 1rem 0 0;
+  padding: 0;
+`
 
-  mask-image: radial-gradient(circle closest-side at center, #ffff, #fff0);
-  animation-name: spin;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  /* background: radial-gradient(#fd73ff, #726f35); */
+const SubText = styled.h2`
+  font-size: 2rem;
+  color: #aaa;
 `
 
 const Root = styled.div`
   color: #eee;
   background-color: #000;
-  height: 100vh;
+  min-height: 100vh;
+  /* background: radial-gradient(#ff00ee, #ffd500); */
+  background-color: #000;
   position: relative;
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`
+
+const Wrapper = styled.div`
+  flex: 1 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background: radial-gradient(#ff00ee, #ffd500); */
-  overflow: hidden;
-  background: ${(props) =>
-    props.gradient ? `linear-gradient(to right, #bb00a5, #c3ca00)` : ''};
+`
+
+const VideoWrapper = styled.div`
+  width: 100%;
+  max-width: 130vh;
+`
+
+const More = styled.div`
+  color: #eee;
+  cursor: pointer;
 `
