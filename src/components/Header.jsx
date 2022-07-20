@@ -55,7 +55,7 @@ function Header({ expanded, fixed, invisible }) {
       style={{
         top: `${-outEase * 5}rem`,
         position: fixed ? 'fixed' : undefined,
-        padding: '0.5rem',
+        padding: '0.5rem 1rem',
         backgroundColor: backgroundColor,
         boxShadow: boxShadow,
         WebkitBoxShadow: boxShadow,

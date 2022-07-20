@@ -28,5 +28,5 @@ const Container = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin: -1rem;
-  padding: 10% 0;
+  padding: 5% 0;
 `

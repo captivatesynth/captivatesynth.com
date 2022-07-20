@@ -13,6 +13,7 @@ import JustTheBeginning from '../index/JustTheBeginning'
 import Download from '../index/Download'
 import FixedARVideo from '../components/FixedARVideo'
 import { StaticImage } from 'gatsby-plugin-image'
+import PianoIcon from '@mui/icons-material/Piano'
 
 // markup
 export default function IndexPage() {
@@ -106,14 +107,19 @@ export default function IndexPage() {
         </SubSection>
       </Section>
       <Section alternate={alternate()} flex>
+        <SubSection
+          style={{ minWidth: 0, flex: '0 0 auto', fontSize: '10rem' }}
+        >
+          <PianoIcon fontSize="inherit" />
+        </SubSection>
         <SubSection>
           <H3>Powerful Midi Control</H3>
           <P>
             Plug in a midi controller to "play" your lights like an instrument.
           </P>
           <P>
-            Captivate is so intuitive that someone with no lighting experience
-            can control a show.
+            So Intuitive that someone with no lighting experience can control a
+            show.
           </P>
         </SubSection>
       </Section>
