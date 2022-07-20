@@ -8,6 +8,10 @@ import icon from '../../static/icon.svg'
 
 const speed = 0.1
 
+function target() {
+  return window.innerHeight - 10
+}
+
 export default function WrappedHeader({ expanded }) {
   if (expanded) {
     return <Header expanded fixed />
@@ -26,10 +30,10 @@ function Header({ expanded, fixed, invisible }) {
 
   React.useEffect(() => {
     const animate = () => {
-      if (window.scrollY > window.innerHeight && ease > 0) {
+      if (window.scrollY > target() && ease > 0) {
         setEase(Math.max(ease - speed, 0))
       }
-      if (window.scrollY < window.innerHeight && ease < 1) {
+      if (window.scrollY < target() && ease < 1) {
         setEase(Math.min(ease + speed, 1))
       }
     }
