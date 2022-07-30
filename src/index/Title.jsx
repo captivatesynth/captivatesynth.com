@@ -29,7 +29,7 @@ export default function Title() {
         <div style={{ flex: '1 0 0' }} />
         <VideoWrapper>
           <FixedARVideo
-            src="https://www.youtube.com/embed/6ZwQ97sySq0"
+            src="https://www.youtube.com/embed/RYe1sokuxWQ"
             ar={16 / 9}
           />
         </VideoWrapper>
