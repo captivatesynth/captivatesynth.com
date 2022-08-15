@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import Checkbox from '@mui/material/Checkbox'
 import { H1, H2, H3, H4, H5, P, mediaMinWidth } from '../components/styled'
 import DownloadButton from '../components/DownloadButton'
-import { MAC_X86_FILENAME, MAC_ARM_FILENAME } from '../strings'
+import {
+  MAC_X86_FILENAME,
+  MAC_ARM_FILENAME,
+  WINDOWS_FILENAME,
+} from '../strings'
 
 const ACCEPTED = 'accepted_terms_and_conditions'
 
@@ -34,8 +38,10 @@ export default function Download() {
         <DownloadButton enabled={accepted} filename={MAC_ARM_FILENAME}>
           Mac (arm)
         </DownloadButton>
+        <DownloadButton enabled={accepted} filename={WINDOWS_FILENAME}>
+          Windows (x64)
+        </DownloadButton>
       </Row>
-      <P>Windows & Linux support coming soon</P>
     </>
   )
 }
