@@ -53,6 +53,7 @@ function TermsAndConditions() {
 const Row = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 const Label = styled.label``
